@@ -35,7 +35,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.8.3
+          terraform_version: 1.13
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -49,6 +49,10 @@ jobs:
         run: |
           DESTROY="$(jq -r '.${{ inputs.environment }}' ./terraform/destroy_config.json)"
           echo "destroy=$(echo $DESTROY)" >> $GITHUB_OUTPUT
+
+      - name: Build Lambda
+        working-directory: my-node-lambda
+        run: npm ci && npm run build
 
       - name: Terraform Init
         working-directory: terraform
