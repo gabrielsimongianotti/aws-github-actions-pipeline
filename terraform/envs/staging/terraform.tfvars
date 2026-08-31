@@ -1,1 +1,1 @@
-bucket_name = "new-stating-gataolab"
+environment = "staging"

@@ -1,0 +1,21 @@
+{
+  "name": "my-node-lambda",
+  "version": "1.0.0",
+  "description": "A serverless Lambda that prints and responds with hello world",
+  "scripts": {
+    "dev": "serverless offline",
+    "test": "vitest run",
+    "build": "tsc",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.142",
+    "serverless": "^3.40.0",
+    "serverless-offline": "^14.2.0",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0",
+    "@vitest/coverage-v8": "^2.0.0"
+  }
+}
